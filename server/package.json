@@ -1,0 +1,11 @@
+{
+  "name": "yelpcamp_api_server",
+  "version": "1.0.0",
+  "description": "The server that handles apis, models and routes for yelpcamp app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nathan Onofeghara",
+  "license": "ISC"
+}
