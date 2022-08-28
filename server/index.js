@@ -1,12 +1,9 @@
 const express = require('express'),
       app     = express(),
-      port    = process.env.PORT || 4000,
-      bodyParser = require('body-parser'),
+      port    = process.env.PORT || 4000, 
       cors       = require('cors')
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
     //  Enabling CORS
 app.use(cors({
