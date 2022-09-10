@@ -1,18 +1,23 @@
 const express = require('express'),
-      helper = require('../helpers/campgrounds'),
-      router  = express.Router()
+    router  = express.Router(),
+      {
+        getCampgrounds,
+        createCampground,
+        getCampground,
+        updateCampground,
+        deleteCampground    } = require('../controllers/campgroundController')
 
 
 // INDEX ROUTE
 router.route('/')
- .get(helper.getCampgrounds)
- .post(helper.createCampground)
+ .get(getCampgrounds)
+ .post(createCampground)
 
 
-router.route('/:campgroundId')
- .get(helper.getCampground)
- .put(helper.updateCampground)
- .delete(helper.deleteCampground)
+router.route('/:id')
+ .get(getCampground)
+ .patch(updateCampground)
+ .delete(deleteCampground)
 
 
 

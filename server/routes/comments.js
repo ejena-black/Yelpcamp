@@ -1,18 +1,23 @@
 const express = require('express'),
-      helper = require('../helpers/comments'),
-      router  = express.Router()
+      router  = express.Router(),
+      {
+        getComments,
+        createComment,
+        getComment,
+        updateComment,
+        deleteComment} = require('../controllers/commentController')
 
 
 // INDEX ROUTE
 router.route('/')
- .get(helper.getComments)
- .post(helper.createComment)
+ .get(getComments)
+ .post(createComment)
 
 
-router.route('/:commentId')
- .get(helper.getComment)
- .put(helper.updateComment)
- .delete(helper.deleteComment)
+router.route('/:id')
+ .get(getComment)
+ .patch(updateComment)
+ .delete(deleteComment)
 
 
 
