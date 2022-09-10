@@ -7,5 +7,5 @@ mongoose.connect('mongodb://localhost/yelp_camp');
 
 mongoose.Promise = Promise;
 
-module.exports.Campground = require('./campground');
-module.exports.Comment= require('./comment');
+module.exports.Campground = require('./campgroundModel');
+module.exports.Comment= require('./commentModel');

@@ -1,7 +1,8 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
     //   Comment  = require('./comments')
 
-const campgroundSchema = mongoose.Schema({
+const campgroundSchema = Schema({
     name: String,
     image: String,
     description: String,
@@ -19,6 +20,6 @@ const campgroundSchema = mongoose.Schema({
         },
         username: String
     }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Campground', campgroundSchema)
