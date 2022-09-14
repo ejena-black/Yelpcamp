@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const { Campground } = require('../models');
 
 
@@ -23,29 +24,38 @@ const createCampground = async (req, res) => {
 
 // get a single campground
 const getCampground = async (req, res) => {
-    const { campgroundId } = req.params
-    const campground = await Campground.findById(campgroundId)
+    const { id } = req.params
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: 'No such Campground Id'})
+    }
+    const campground = await Campground.findById(id)
 
     !campground ? res.status(404).json({error: 'No such campground'}) : res.status(200).json(campground)
 }
 
 // update campground
 const updateCampground = async (req, res) => {
-    const { campgroundId } = req.params
+    const { id } = req.params
 
-    try{
-        const campground = await Campground.findOneAndUpdate({_id: campgroundId}, req.body);
-        res.status(200).json(campground)
-    } catch {
-        res.status(404).json({error: 'Could no find campground'})
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: 'No such Campground Id'})
     }
+
+    const campground = await Campground.findOneAndUpdate({_id: id}, {...req.body});
+
+    !campground ? res.status(404).json({error: 'No such campground'}) : res.status(200).json(campground)
+    
 }
 
 const deleteCampground = async (req, res) =>{
-    const { campgroundId } = req.params
+    const { id } = req.params
+
+    if(!mongoose.Types.ObjectId.isValid(id)){
+        return res.status(404).json({error: 'No such Campground Id'})
+    }
 
     try{
-        await Campground.remove({_id: campgroundId})
+        await Campground.findOneAndDelete({_id: id})
         res.status(200).json({message: 'Deleted successfully'})
     } catch{
         res.status(400).json({error: error.message})
