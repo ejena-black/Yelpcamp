@@ -1,0 +1,25 @@
+.catalogue-container{
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 100vw; */
+    gap: 40px;
+    padding: 50px 100px;
+}
+.catalogue-preview{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    background-color: antiquewhite;
+}
+.catalogue-preview img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+.catalogue-preview p{
+    overflow: hidden;
+}

@@ -1,0 +1,40 @@
+.nav-container{
+    background-color: rgb(56, 136, 136);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.nav-container ul{
+    display: flex;
+    align-items: center;
+}
+.nav-container nav{
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+}
+.switch-wrapper{
+    display: flex;
+    align-items: center;
+    background-color: rgb(66, 86, 86);
+    width: 50px;
+    height: 25px;
+    border-radius: 20px;
+}
+.switch-wrapper input{
+    display: none;
+}
+.switch{
+    position: relative;
+    background-color: black;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 250ms ease-in-out;
+}
+.switch-wrapper input:checked ~ label .switch{
+    transform: translateX(30px);
+}
+
